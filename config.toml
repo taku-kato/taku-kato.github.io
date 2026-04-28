@@ -1,4 +1,4 @@
-baseurl = "https://katotaku1192.github.io/"
+baseurl = "https://taku-kato.github.io/"
 theme = "hugo-creative-portfolio-theme"
 publishDir = "docs"
 
