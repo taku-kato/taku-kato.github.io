@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Portfolios on たまきちLab.</title>
+    <title>Portfolios on Takuya Kato   加藤 匠哉</title>
     <link>https://taku-kato.github.io/portfolio/</link>
-    <description>Recent content in Portfolios on たまきちLab.</description>
+    <description>Recent content in Portfolios on Takuya Kato   加藤 匠哉</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 05 Nov 2016 19:57:40 +0530</lastBuildDate><atom:link href="https://taku-kato.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -12,52 +12,61 @@
       <pubDate>Sat, 05 Nov 2016 19:56:17 +0530</pubDate>
       
       <guid>https://taku-kato.github.io/portfolio/publication/</guid>
-      <description>&lt;p&gt;随時更新していきます（していきたい）&lt;/p&gt;</description>
+      <description></description>
     </item>
     
     <item>
-      <title>RESEARCH</title>
-      <link>https://taku-kato.github.io/portfolio/research/</link>
+      <title>Pin-Array Gripper</title>
+      <link>https://taku-kato.github.io/portfolio/pin_array_gripper/</link>
       <pubDate>Sat, 05 Nov 2016 19:44:32 +0530</pubDate>
       
-      <guid>https://taku-kato.github.io/portfolio/research/</guid>
-      <description>&lt;p&gt;大学院での研究内容を紹介します&lt;/p&gt;</description>
+      <guid>https://taku-kato.github.io/portfolio/pin_array_gripper/</guid>
+      <description>&lt;p&gt;Mechanism for gripping and shape recognition of convex and concave terrain profiles&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>ROBOCON</title>
+      <title>Climbing Robot</title>
+      <link>https://taku-kato.github.io/portfolio/pin_array_robot/</link>
+      <pubDate>Sat, 05 Nov 2016 19:44:32 +0530</pubDate>
+      
+      <guid>https://taku-kato.github.io/portfolio/pin_array_robot/</guid>
+      <description>&lt;p&gt;Cliff-climbing robot composed of multiple gripping modules with a pin-array structure&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Robot Contest</title>
       <link>https://taku-kato.github.io/portfolio/robocon/</link>
       <pubDate>Sat, 05 Nov 2016 19:41:01 +0530</pubDate>
       
       <guid>https://taku-kato.github.io/portfolio/robocon/</guid>
-      <description>&lt;p&gt;学部時代はロボット作りに熱中してました&lt;/p&gt;</description>
+      <description>&lt;p&gt;Club activities during my undergraduate years&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>PERSONAL PROJECT</title>
+      <title>Parallel Link Robot</title>
       <link>https://taku-kato.github.io/portfolio/saize/</link>
       <pubDate>Sat, 05 Nov 2016 19:50:47 +0530</pubDate>
       
       <guid>https://taku-kato.github.io/portfolio/saize/</guid>
-      <description>&lt;p&gt;趣味で作ったロボットです．&lt;/p&gt;</description>
+      <description>&lt;p&gt;Personal project&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>MIMOSA</title>
-      <link>https://taku-kato.github.io/portfolio/mimosa/</link>
-      <pubDate>Sat, 05 Nov 2016 19:53:42 +0530</pubDate>
-      
-      <guid>https://taku-kato.github.io/portfolio/mimosa/</guid>
-      <description>&lt;p&gt;高校時代の夢は植物生理学者でした&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>POTTERY</title>
+      <title>Pottery</title>
       <link>https://taku-kato.github.io/portfolio/yakimono/</link>
       <pubDate>Sat, 05 Nov 2016 19:57:40 +0530</pubDate>
       
       <guid>https://taku-kato.github.io/portfolio/yakimono/</guid>
-      <description>&lt;p&gt;「ものづくり」について考える日々&lt;/p&gt;</description>
+      <description>&lt;p&gt;Traditional crafts in my hometown&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Plant Physiology</title>
+      <link>https://taku-kato.github.io/portfolio/mimosa/</link>
+      <pubDate>Sat, 05 Nov 2016 19:53:42 +0530</pubDate>
+      
+      <guid>https://taku-kato.github.io/portfolio/mimosa/</guid>
+      <description>&lt;p&gt;Research I worked on during high school&lt;/p&gt;</description>
     </item>
     
   </channel>

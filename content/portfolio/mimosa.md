@@ -1,13 +1,13 @@
 +++
 image = "fig/mimosa.jpg"
-showonlyimage = false
+showonlyimage = true
 draft = false
 date = "2016-11-05T19:53:42+05:30"
-title = "MIMOSA"
-weight = 5
+title = "Plant Physiology"
+weight = 7
 +++
 
-高校時代の夢は植物生理学者でした
+Research I worked on during high school
 <!--more-->
 
 高校時代はオジギソウ (*Mimosa pudica*) という植物の光屈性に関する研究をしていました．
@@ -22,4 +22,4 @@ weight = 5
 
 当時はそのまま大学の理学部に進み，もっと植物の研究をしたいと漠然と思っていましたが，よくよく考えると生物の授業をまあまあサボっていたこと，化学がめちゃくちゃ苦手なこと，就職先がよくわからなかったこと，そもそもオジギソウ以外の植物にあまり興味がなかったことなどが重なって，高校3年次の進路選択の段階で大胆に方針転換．結局ロボット（機械系）の道に進みました．
 
-でも、動く植物って面白いですよね。
+でも，動く植物って面白いですよね．

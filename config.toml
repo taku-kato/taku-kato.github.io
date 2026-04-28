@@ -7,12 +7,12 @@ DefaultContentLanguage = "ja"
 [languages]
   [languages.en]
     languageName = "English"
-    weight = 10
-    title = "Japanese Old Tales"
+    weight = 20
+    title = "Takuya Kato"
   [languages.ja]
     languageName = "Japanese"
     weight = 20
-    title = "たまきちLab."
+    title = "Takuya Kato   加藤 匠哉"
 # Enable comments by entering your Disqus shortname
 disqusShortname = ""
 # Enable Google Analytics by entering your tracking code
@@ -21,11 +21,11 @@ googleAnalytics = ""
 [params]
   # Style options: default (pink), blue, green, pink, red, sea, violet
   # Use custom.css for your custom styling
-  style = "default"
+  style = "sea"
   description = "Describe your website"
-  copyright = "&copy;2022 Takuya Kato"
+  copyright = "&copy;2026 Takuya Kato"
   sidebarAbout = [
-    "これまでに作ったもの，考えたことなどを書き溜めていくページです．"
+    "Robotics Researcher"
   ]
   # Contact page
      # Since this template is static, the contact form uses www.formspree.io as a
@@ -52,12 +52,12 @@ googleAnalytics = ""
 
   # Nav links in the side bar
   [[params.navlinks]]
-  name = "Home"
+  name = "home"
   url = "portfolio/"
   home = true
 
   [[params.navlinks]]
-  name = "ABOUT"
+  name = "about"
   url = "about/"
 
   #[[params.navlinks]]
@@ -76,7 +76,7 @@ googleAnalytics = ""
   linkedin      = "https://www.linkedin.com/in/takuya-kato/"
   #stackoverflow = "full profile url in stackoverflow"
   #instagram     = "full profile url in instagram"
-  github        = "https://github.com/katotaku1192"
+  github        = "https://github.com/taku-kato"
   #gitlab        = "full profile url in gitlab"
   youtube       = "https://www.youtube.com/channel/UCnXQgGzpAl7w4qyuUgYy6xw/featured"
   #whatsapp      = "wa.me service link"

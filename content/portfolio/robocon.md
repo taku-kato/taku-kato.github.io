@@ -1,16 +1,16 @@
 +++
 date = "2016-11-05T19:41:01+05:30"
-title = "ROBOCON"
+title = "Robot Contest"
 draft = false
 image = "fig/nhk2020_title.JPG"
-showonlyimage = false
-weight = 3
+showonlyimage = true
+weight = 4
 +++
 
-学部時代はロボット作りに熱中してました
+Club activities during my undergraduate years
 <!--more-->
 
-大学生になってから4年間，[岐阜大学ロボコンサークル](https://www2.gifu-u.ac.jp/~gcrobo/)に所属し，メカ屋と部長（2018&2019）を務めました．
+大学生になってから4年間，[岐阜大学ロボコンサークル](https://gifurobocon.wixsite.com/gifu-university-robo)に所属し，メカ屋と部長（2018&2019）を務めました．
 
 部長やプロジェクトリーダーを務めたときは，リソースが足りない中でのマネジメントにかなり苦労しましたが，それでも楽しくロボットを作り続けた経験が人生の方向性を決めているような気がします．\
 メカ屋としては，とにかくたくさんロボットを設計・製造していました．この頃の機構設計の経験が今のものづくりに生きています．
