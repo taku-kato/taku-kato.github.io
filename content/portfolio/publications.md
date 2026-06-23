@@ -2,7 +2,7 @@
 draft = false
 image = "fig/ieee_screenshot.png"
 date = "2016-11-05T19:56:17+05:30"
-title = "Publication"
+title = "Publications"
 showonlyimage = false
 weight = 1
 +++
