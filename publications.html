@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications — Takuya Kato 加藤匠哉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDEAE3;
+    --paper-2:#E4E0D6;
+    --ink:#1D1C19;
+    --ink-soft:#4A473F;
+    --line: rgba(29,28,25,0.16);
+    --line-strong: rgba(29,28,25,0.34);
+    --accent-eng:#33465A;
+    --accent-craft:#5C6B44;
+    --paper-rgb: 237,234,227;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans JP','IBM Plex Mono',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity:0.35;
+    pointer-events:none;
+    z-index:0;
+  }
+  .wrap{position:relative; z-index:1; max-width:1000px; margin:0 auto; padding:0 32px;}
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(var(--paper-rgb),0.86);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{
+    max-width:1180px;
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:18px; padding-bottom:18px;
+  }
+  .brand{
+    display:flex; flex-direction:column; gap:3px;
+    text-decoration:none; color:var(--ink);
+  }
+  .brand-name{font-family:'Inter', sans-serif; font-weight:500; font-size:23px; letter-spacing:0.005em; color:var(--ink); line-height:1;}
+  .brand-sub{font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:0.04em; color:var(--ink-soft);}
+  nav{display:flex; align-items:center; gap:26px;}
+  nav a{
+    color:var(--ink); text-decoration:none;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px; letter-spacing:0.04em;
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  nav a.current{border-color:var(--ink);}
+  nav a:hover{border-color:var(--ink);}
+  .social-row{display:flex; gap:16px;}
+  .social-row a{
+    width:26px; height:26px; display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--line-strong); border-radius:50%;
+    color:var(--ink); transition:background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .social-row a:hover{background:var(--ink); color:var(--paper); transform:translateY(-1px);}
+  .social-row svg{width:13px; height:13px;}
+
+  @media (max-width:600px){ header nav{display:none;} }
+
+  /* ---------- hero ---------- */
+  .pub-hero{padding:90px 0 44px;}
+  .pub-hero h1{
+    font-family:'Inter', sans-serif; font-weight:400;
+    font-size:clamp(34px, 5vw, 52px);
+    line-height:1.1; margin:0; letter-spacing:-0.01em;
+  }
+
+  /* ---------- section head ---------- */
+  .section-head{
+    border-top:1px solid var(--line-strong);
+    padding-top:16px; margin:0 0 4px;
+  }
+  .section-head h2{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:16px; letter-spacing:0.08em; text-transform:uppercase;
+    margin:0; font-weight:600; color:var(--ink);
+  }
+
+  /* ---------- publication list ---------- */
+  .pub-section{padding-top:36px;}
+  .pub-section:last-of-type{padding-bottom:110px;}
+  .pub-list{margin:20px 0 0; padding:0; list-style:none;}
+  .pub-entry{
+    position:relative;
+    padding:5px 0 5px 20px;
+    font-family:'IBM Plex Sans JP', sans-serif;
+    font-weight:300;
+    font-size:14.5px;
+    line-height:1.7;
+    color:var(--ink);
+  }
+  .pub-entry::before{
+    content:"–";
+    position:absolute; left:0; top:5px;
+    color:var(--ink-soft);
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .pub-entry strong{
+    font-weight:400;
+    text-decoration:underline;
+    text-underline-offset:2px;
+  }
+  .pub-entry a{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px;
+    color:var(--ink-soft); text-decoration:none;
+    border-bottom:1px solid var(--line-strong); padding-bottom:1px;
+    margin-left:8px; white-space:nowrap;
+  }
+  .pub-entry a:hover{color:var(--accent-eng); border-color:var(--accent-eng);}
+
+  footer{border-top:1px solid var(--line-strong); padding:36px 0 48px;}
+  footer .wrap{max-width:1180px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+  footer p{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft); margin:0; letter-spacing:0.03em;}
+
+  .fade-up{opacity:0; transform:translateY(18px); animation:fadeUp .8s ease forwards;}
+  @keyframes fadeUp{to{opacity:1; transform:translateY(0);}}
+  @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="brand-name">TAKUYA KATO</span>
+      <span class="brand-sub">加藤匠哉 — Robotics & HCI Researcher</span>
+    </a>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="publications.html" class="current">Publications</a>
+      <div class="social-row" style="margin-left:14px;">
+        <a href="https://x.com/robokch" target="_blank" rel="noopener" aria-label="X">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.6L4.4 22H1.3l8.1-9.3L1 2h7.1l4.9 6.1L18.9 2Zm-1.2 18h1.9L7.4 4H5.4l12.3 16Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/taku_kato_" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 448 512" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141Zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7Zm146.4-194.3a26.8 26.8 0 1 1-53.6 0 26.8 26.8 0 0 1 53.6 0Zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1S3.3 128.5 1.5 164.4c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8ZM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1Z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/takuya-kato/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3 9.5h4V21H3V9.5Zm7 0h3.8v1.6h.05c.53-.95 1.82-1.95 3.75-1.95 4 0 4.75 2.5 4.75 5.75V21h-4v-5.6c0-1.35-.03-3.1-1.9-3.1-1.9 0-2.2 1.45-2.2 3v5.7h-4V9.5Z"/></svg>
+        </a>
+        <a href="https://github.com/taku-kato" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.15-1.11-1.46-1.11-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.9-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.83-2.35 4.68-4.58 4.92.36.31.68.92.68 1.85v2.75c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="pub-hero">
+  <div class="wrap">
+    <h1 class="fade-up">Publications</h1>
+  </div>
+</section>
+
+<!-- 学術誌論文 -->
+<section class="pub-section">
+  <div class="wrap">
+    <div class="section-head"><h2>学術誌論文 — Journal Articles</h2></div>
+    <ul class="pub-list">
+      <li class="pub-entry">
+        <strong>加藤匠哉</strong>，宇野健太朗，吉田和哉，"ピン配列型凹凸地形把持機構"，<em>日本ロボット学会誌</em>，vol. 42, no. 2, pp. 177–180, 2023．
+        <a href="https://www.jstage.jst.go.jp/article/jrsj/42/2/42_42_177/_article/-char/ja/" target="_blank" rel="noopener">Paper ↗</a>
+      </li>
+      <li class="pub-entry">
+        宇田昌弘，澤健太，宇野健太朗，<strong>加藤匠哉</strong>，Li Zheng Travis Lim，吉田和哉，"車輪－グリッパ間変形可能機構の開発と把持性能評価</strong>"，<em>日本ロボット学会誌</em>，vol. 42, no. 6, pp. 580–583, 2023．
+        <a href="https://www.jstage.jst.go.jp/article/jrsj/42/6/42_42_580/_article/-char/ja/" target="_blank" rel="noopener">Paper ↗</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 国際会議 -->
+<section class="pub-section">
+  <div class="wrap">
+    <div class="section-head"><h2>国際会議 — International Conferences (Peer reviewed)</h2></div>
+    <ul class="pub-list">
+      <li class="pub-entry">
+        <strong>Takuya Kato</strong>, Kentaro Uno and Kazuya Yoshida, "A Pin-Array Structure for Gripping and Shape Recognition of Convex and Concave Terrain Profiles," In <em>Proceedings of the 2022 IEEE International Conference on Robotics and Biomimetics (ROBIO)</em>, pp. 1365–1370, 2022.
+        <a href="https://ieeexplore.ieee.org/abstract/document/10011858" target="_blank" rel="noopener">Paper ↗</a>
+        <a href="https://youtu.be/dWo28Nl5jgE?si=thcxHhgZ40nrwpab" target="_blank" rel="noopener">Movie ↗</a>
+      </li>
+      <li class="pub-entry">
+        Kentaro Uno, Kazuki Takada, Keita Nagaoka, <strong>Takuya Kato</strong>, Arthur Candalot, and Kazuya Yoshida, "Lower Gravity Demonstratable Testbed for Space Mobile Robot Experiments," In <em>Proceedings of the IEEE/SICE International Symposium on System Integration (SII)</em>, pp. 1183–1184, 2024.
+        <a href="https://ieeexplore.ieee.org/document/10417210" target="_blank" rel="noopener">Paper ↗</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 国内会議 -->
+<section class="pub-section">
+  <div class="wrap">
+    <div class="section-head"><h2>国内学会 — Domestic Conferences (No reviewed)</h2></div>
+    <ul class="pub-list">
+      <li class="pub-entry">
+        <strong>加藤匠哉</strong>，宇野健太朗，吉田和哉，"複数のピン配列型把持モジュールによる崖登りロボットの開発"，<em>第35回自律分散システム・シンポジウム予稿集</em>，pp. 229–230，2023．
+      </li>
+      <li class="pub-entry">
+        <strong>加藤匠哉</strong>，宇野健太朗，吉田和哉，"ピン配列型凹凸地形把持機構"，<em>第40回日本ロボット学会学術講演会予稿集</em>，No. 4K3-07，2022．
+      </li>
+      <li class="pub-entry">
+        <strong>加藤匠哉</strong>，宇野健太朗，吉田和哉，"センサ内蔵グリッパによる脚型クライミングロボットの把持状態推定"，<em>ロボティクス・メカトロニクス講演会2022講演概要集</em>，No. 1A1-K11，2022．
+        <a href="https://www.jstage.jst.go.jp/article/jsmermd/2022/0/2022_1A1-K11/_article/-char/ja/" target="_blank" rel="noopener">Paper ↗</a>
+      </li>
+      <li class="pub-entry">
+        江口幹生，宇野健太朗，髙田一輝，<strong>加藤匠哉</strong>，吉田和哉，"鉤爪型グリッパの自然岩石把持性能に関する実験的考察および改良開発"，<em>第24回計測自動制御学会 システムインテグレーション部門講演会（SI2023）</em>，#3F5-01，2023．
+      </li>
+      <li class="pub-entry">
+        宇野健太朗，藤井康丸，髙田一輝，江口幹生，今井正純，<strong>加藤匠哉</strong>，村瀬晃基，大河原拓，吉田和哉，内田博也，角田旭，宮地史也，板倉理一，山口正光ピヨトル，稲垣哲哉，"ポストISS・探査に向けた自動化・自律化 ～船内伝い歩き移動ロボットのプロトタイプ開発と地上実証～"，<em>第67回宇宙科学技術連合講演会</em>，#2N09，2023．
+      </li>
+      <li class="pub-entry">
+        宇田昌弘，澤健太，宇野健太朗，<strong>加藤匠哉</strong>，Li Zheng Travis Lim，吉田和哉，"車輪ーグリッパ間変形可能機構の開発と把持性能評価"，<em>第41回日本ロボット学会学術講演会予稿集</em>，No. 1C4-01，2023．
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 特許 -->
+<section class="pub-section">
+  <div class="wrap">
+    <div class="section-head"><h2>特許 — Patents</h2></div>
+    <ul class="pub-list">
+      <li class="pub-entry">
+        "ロボットシステム，容器供給システム及び容器供給方法"，出願番号：P2025-111100，出願日：2025年6月30日．（日本国特許出願済）
+      </li>
+      <li class="pub-entry">
+        "農作物の収穫システム，農作物の収穫方法"，出願番号：P2025-071928，出願日：2025年4月23日．（日本国特許出願済）
+      </li>
+      <li class="pub-entry">
+        "対象物の捕捉システム，対象物の捕捉方法，農作物の採取システム"，出願番号：P2025-071904，出願日：2025年4月23日．（日本国特許出願済）
+      </li>
+      <li class="pub-entry">
+        "ロボットシステム及びロボットの制御方法"，出願番号：P2024-198309，出願日：2024年11月13日．（日本国特許出願済）
+      </li>
+      <li class="pub-entry">
+        "エンドエフェクタ及びロボット"，出願番号：PCT/JP2024/021899，公開番号：WO/2024/262461，出願日：2024年6月17日．（PCT出願済）
+        <a href="https://patentscope.wipo.int/search/ja/WO2024262461" target="_blank" rel="noopener">Patent ↗</a>
+      </li>
+      <li class="pub-entry">
+        "機構，ロボット"，特許番号：P7751335，公開番号：WO/2023/233468，登録日：2025年9月30日．（日本国特許登録済 & PCT出願済）
+        <a href="https://patentscope2.wipo.int/search/ja/detail.jsf?docId=WO2023233468" target="_blank" rel="noopener">Patent ↗</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 受賞 -->
+<section class="pub-section">
+  <div class="wrap">
+    <div class="section-head"><h2>受賞 — Awards</h2></div>
+    <ul class="pub-list">
+      <li class="pub-entry">
+        "日本ロボット学会優秀学生賞"，日本ロボット学会，2021年3月．
+        <a href="https://www.rsj.or.jp/info/awards/category/ygs/" target="_blank" rel="noopener">Details ↗</a>
+      </li>
+      <li class="pub-entry">
+        "愛知県大学対抗ハッカソン2020　企業賞"，愛知県，2020年11月．
+        <a href="https://jellyware.jp/hackaichi/" target="_blank" rel="noopener">Details ↗</a>
+      </li>
+      <li class="pub-entry">
+        "岐阜大学工学部長表彰"，岐阜大学，2018年6月．
+      </li>
+      <li class="pub-entry">
+        "第59回日本学生科学賞　優秀賞"，読売新聞社，2015年12月．
+        <a href="https://event.yomiuri.co.jp/jssa/" target="_blank" rel="noopener">Details ↗</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Takuya Kato, All rights reserved.</p>
+    <p>Tokyo, Japan</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pin-Array Gripper — Takuya Kato 加藤匠哉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDEAE3; --paper-2:#E4E0D6; --ink:#1D1C19; --ink-soft:#4A473F;
+    --line: rgba(29,28,25,0.16); --line-strong: rgba(29,28,25,0.34);
+    --accent-eng:#33465A; --accent-craft:#5C6B44; --paper-rgb: 237,234,227;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans JP','IBM Plex Mono',sans-serif; -webkit-font-smoothing:antialiased;}
+  body::before{
+    content:""; position:fixed; inset:0;
+    background-image:linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:64px 64px; opacity:0.35; pointer-events:none; z-index:0;
+  }
+  .wrap{position:relative; z-index:1; max-width:1180px; margin:0 auto; padding:0 32px;}
+  .article-wrap{max-width:720px;}
+
+  header{position:sticky; top:0; z-index:50; background:rgba(var(--paper-rgb),0.86); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
+  header .wrap{display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px;}
+  .brand{display:flex; flex-direction:column; gap:3px; text-decoration:none; color:var(--ink);}
+  .brand-name{font-family:'Inter', sans-serif; font-weight:500; font-size:23px; letter-spacing:0.005em; color:var(--ink); line-height:1;}
+  .brand-sub{font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:0.04em; color:var(--ink-soft);}
+  nav{display:flex; align-items:center; gap:26px;}
+  nav a{color:var(--ink); text-decoration:none; font-family:'IBM Plex Mono', monospace; font-size:14px; letter-spacing:0.04em; border-bottom:1px solid transparent; padding-bottom:2px; transition:border-color .2s ease, color .2s ease;}
+  nav a.current{border-color:var(--ink);}
+  nav a:hover{border-color:var(--ink);}
+  .social-row{display:flex; gap:16px;}
+  .social-row a{width:26px; height:26px; display:flex; align-items:center; justify-content:center; border:1px solid var(--line-strong); border-radius:50%; color:var(--ink); transition:background .2s ease, color .2s ease, transform .2s ease;}
+  .social-row a:hover{background:var(--ink); color:var(--paper); transform:translateY(-1px);}
+  .social-row svg{width:13px; height:13px;}
+  @media (max-width:600px){ header nav{display:none;} }
+
+  .work-hero{padding:70px 0 40px;}
+  .work-hero .back-link{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.05em;
+    color:var(--ink-soft); text-decoration:none; display:inline-flex; align-items:center; gap:6px;
+    margin-bottom:26px; transition:color .2s ease;
+  }
+  .work-hero .back-link:hover{color:var(--ink);}
+  .work-hero .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--accent-eng); margin:0 0 18px; display:flex; align-items:center; gap:12px;
+  }
+  .work-hero .eyebrow::before{content:""; width:34px; height:1px; background:currentColor; display:inline-block; opacity:0.5;}
+  .work-hero h1{
+    font-family:'Inter', sans-serif; font-weight:400; font-size:clamp(32px,5vw,50px);
+    line-height:1.15; margin:0 0 16px; letter-spacing:-0.01em; max-width:720px;
+  }
+  .work-hero h1 .year{
+  font-family:'IBM Plex Mono', monospace; font-weight:300; font-size:0.5em;
+  color:var(--ink-soft); margin-left:14px; vertical-align:middle;
+  }
+  .work-hero .lede{
+    font-family:'Inter', sans-serif; font-style:italic; font-weight:300;
+    font-size:clamp(16px,1.8vw,19px); max-width:640px; line-height:1.7; color:var(--ink-soft); margin:0;
+  }
+
+  .article{padding:10px 0 90px;}
+  .article p{
+    font-family:'IBM Plex Sans JP', sans-serif; font-weight:300; font-size:15.5px;
+    line-height:1.95; color:var(--ink); margin:0 0 24px;
+  }
+  .article p strong{font-weight:600;}
+  .article a{color:var(--accent-eng);}
+  .article figure{margin:34px 0;}
+  .article figure img{width:100%; display:block; background:#cfcbbf;}
+  .img-row{display:grid; grid-template-columns:1fr 1fr; gap:2px; margin:34px 0;}
+  .img-row img{width:100%; height:100%; object-fit:cover; display:block; background:#cfcbbf;}
+  @media (max-width:640px){ .img-row{grid-template-columns:1fr;} }
+
+  .citation-box{
+    border-top:1px solid var(--line-strong);
+    padding:22px 0; margin:36px 0;
+  }
+  .citation-box .label{
+    font-family:'IBM Plex Mono', monospace; font-size:16px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--ink-soft); display:block; margin-bottom:10px; font-weight:600; 
+  }
+  .citation-box p{
+    font-family:'IBM Plex Sans JP', sans-serif; font-size:14px; line-height:1.85; color:var(--ink-soft);
+    margin:0; font-weight:300;
+  }
+  .citation-box .links{margin-top:14px; display:flex; gap:16px; flex-wrap:wrap;}
+  .citation-box .links a{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink);
+    text-decoration:none; border-bottom:1px solid var(--ink); padding-bottom:1px;
+  }
+  .citation-box .links a:hover{color:var(--accent-eng); border-color:var(--accent-eng);}
+
+  .video-wrap{position:relative; width:100%; padding-top:56.25%; margin:-30px 0 34px;; background:#000;}
+  .video-wrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+
+  footer{border-top:1px solid var(--line-strong); padding:36px 0 48px;}
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+  footer p{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft); margin:0; letter-spacing:0.03em;}
+
+  .fade-up{opacity:0; transform:translateY(18px); animation:fadeUp .8s ease forwards;}
+  @keyframes fadeUp{to{opacity:1; transform:translateY(0);}}
+  @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="brand-name">TAKUYA KATO</span>
+      <span class="brand-sub">加藤匠哉 — Robotics & HCI Researcher</span>
+    </a>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="publications.html">Publications</a>
+      <div class="social-row" style="margin-left:14px;">
+        <a href="https://x.com/robokch" target="_blank" rel="noopener" aria-label="X">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.6L4.4 22H1.3l8.1-9.3L1 2h7.1l4.9 6.1L18.9 2Zm-1.2 18h1.9L7.4 4H5.4l12.3 16Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/taku_kato_" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 448 512" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141Zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7Zm146.4-194.3a26.8 26.8 0 1 1-53.6 0 26.8 26.8 0 0 1 53.6 0Zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1S3.3 128.5 1.5 164.4c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8ZM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1Z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/takuya-kato/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3 9.5h4V21H3V9.5Zm7 0h3.8v1.6h.05c.53-.95 1.82-1.95 3.75-1.95 4 0 4.75 2.5 4.75 5.75V21h-4v-5.6c0-1.35-.03-3.1-1.9-3.1-1.9 0-2.2 1.45-2.2 3v5.7h-4V9.5Z"/></svg>
+        </a>
+        <a href="https://github.com/taku-kato" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.15-1.11-1.46-1.11-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.9-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.83-2.35 4.68-4.58 4.92.36.31.68.92.68 1.85v2.75c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="work-hero">
+  <div class="wrap article-wrap">
+    <a class="back-link" href="index.html">← All Works</a>
+    <h1 class="fade-up" style="animation-delay:.05s;">Pin-Array Gripper<span class="year"> — 2022</span></h1>
+    <p class="lede fade-up" style="animation-delay:.1s;">A pin-array Structure for gripping and shape recognition of convex and concave terrain profiles.</p>
+  </div>
+</section>
+
+<section class="article">
+  <div class="wrap article-wrap">
+    <p>東北大学の修士課程で取り組んだ研究テーマの1つです。</p>
+    <p>月面や惑星表面を探査するうえで、従来の車輪では行けないような場所、つまり崖や洞窟のような環境を踏破するためには、どんな形のロボットならうまく探査できるか、という研究でした。</p>
+    <p>活動域が未知の非構造化環境であることから、ロボットと環境とのインタラクションをうまいこと利用するために、いろいろと試行錯誤した結果、<strong>凹凸両方の形状の岩石を全く同じ動きで把持できる機構</strong>を考案しました。</p>
+
+
+    <figure>
+      <img src="fig/gripper.jpg" alt="pin array gripper" loading="lazy">
+    </figure>
+
+    <figure>
+      <img src="fig/gripping_terrain.jpg" alt="pin array gripper" loading="lazy">
+    </figure>
+
+    <p>さらに、把持時にピンの沈んだ深さを計測すれば、地表面の形状もわかるのでは？と考え、感圧センサを使った地形計測システムも実装しました。</p>
+
+    <figure>
+      <img src="fig/mapping.jpg" alt="shape recognition" loading="lazy">
+    </figure>
+
+    <div class="citation-box">
+      <span class="label">Citation</span>
+      <p>T. Kato, <em>et al.</em>, "A Pin-Array Structure for Gripping and Shape Recognition of Convex and Concave Terrain Profiles," In ,<em>Proc. 2022 IEEE Int. Conf. on Robotics and Biomimetics (ROBIO)</em>, pp. 1365–1370, 2022.</p>
+      <div class="links">
+        <a href="https://ieeexplore.ieee.org/abstract/document/10011858" target="_blank" rel="noopener">Paper ↗</a>
+      </div>
+    </div>
+
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/dWo28Nl5jgE" title="Pin-Array Gripper" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Takuya Kato, All rights reserved.</p>
+    <p>Tokyo, Japan</p>
+  </div>
+</footer>
+
+</body>
+</html>

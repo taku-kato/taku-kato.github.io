@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Takuya Kato 加藤匠哉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDEAE3;
+    --paper-2:#E4E0D6;
+    --ink:#1D1C19;
+    --ink-soft:#4A473F;
+    --line: rgba(29,28,25,0.16);
+    --line-strong: rgba(29,28,25,0.34);
+    --accent-eng:#33465A;      /* engineering / mechanism / robot / research / project */
+    --accent-craft:#5C6B44;    /* pottery / plant / craft */
+    --paper-rgb: 237,234,227;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans JP','IBM Plex Mono',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* faint drafting grid */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity:0.35;
+    pointer-events:none;
+    z-index:0;
+  }
+  .wrap{position:relative; z-index:1; max-width:1180px; margin:0 auto; padding:0 32px;}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(var(--paper-rgb),0.86);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:18px; padding-bottom:18px;
+  }
+  .brand{
+    display:flex; flex-direction:column; gap:3px;
+  }
+  .brand-name{font-family:'Inter', sans-serif; font-weight:500; font-size:23px; letter-spacing:0.005em; color:var(--ink); line-height:1;}
+  .brand-sub{font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:0.04em; color:var(--ink-soft);}
+  nav{display:flex; align-items:center; gap:26px;}
+  nav a{
+    color:var(--ink); text-decoration:none;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px; letter-spacing:0.04em;
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  nav a:hover{border-color:var(--ink);}
+  .social-row{display:flex; gap:16px;}
+  .social-row a{
+    width:26px; height:26px; display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--line-strong); border-radius:50%;
+    color:var(--ink); transition:background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .social-row a:hover{background:var(--ink); color:var(--paper); transform:translateY(-1px);}
+  .social-row svg{width:13px; height:13px;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:120px 0 90px;}
+  .hero .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--ink-soft); margin:0 0 22px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .hero .eyebrow::before{content:""; width:34px; height:1px; background:var(--line-strong); display:inline-block;}
+  .hero h1{
+    font-family:'Inter', sans-serif;
+    font-weight:400;
+    font-size:clamp(40px, 6vw, 74px);
+    line-height:1.08;
+    margin:0 0 8px;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 em{font-style:italic; font-weight:300; color:var(--ink-soft);}
+  .hero .kana{
+    font-family:'IBM Plex Sans JP', sans-serif;
+    font-weight:300; font-size:20px; color:var(--ink-soft);
+    margin:0 0 40px;
+  }
+  .hero p.lede{
+    font-family:'Inter', sans-serif; font-style:italic; font-weight:300;
+    font-size:clamp(18px,2.4vw,23px);
+    max-width:640px; line-height:1.65; color:var(--ink);
+    margin:0;
+  }
+
+  /* ---------- section label ---------- */
+  .section-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    border-top:1px solid var(--line-strong);
+    padding-top:18px; margin:0 0 46px;
+  }
+  .section-head h2{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px; letter-spacing:0.14em; text-transform:uppercase;
+    margin:0; font-weight:500;
+  }
+  .section-head .count{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft);
+  }
+
+  /* ---------- works grid ---------- */
+  .works{padding:24px 0 40px;}
+  .filters{
+    display:flex; flex-wrap:wrap; gap:10px;
+    margin-bottom:22px;
+  }
+  .filter-btn{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em;
+    text-transform:uppercase;
+    background:transparent; color:var(--ink-soft);
+    border:1px solid var(--line-strong);
+    padding:7px 14px;
+    cursor:pointer;
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .filter-btn:hover{border-color:var(--ink); color:var(--ink);}
+  .filter-btn.active{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+  .grid{
+    position:relative;
+    width:100%;
+  }
+  .card{
+    background:var(--paper);
+    padding:0;
+    cursor:pointer;
+    position:absolute;
+    top:0; left:0;
+    display:flex; flex-direction:column;
+    transition:transform .55s cubic-bezier(.4,0,.2,1), opacity .4s ease, background .25s ease;
+  }
+  .card.is-hidden{
+    opacity:0;
+    transform-origin:center center;
+    pointer-events:none;
+    z-index:0;
+  }
+  .grid.instant .card{transition:none !important;}
+  .card:hover{background:var(--paper-2);}
+  .card .thumb{
+    position:relative;
+    width:100%; height:100%;
+    overflow:hidden;
+    background:#cfcbbf;
+  }
+  .card .thumb img{
+    width:100%; height:100%; object-fit:cover;
+    filter:grayscale(1) contrast(1.02);
+    transform:scale(1.02);
+    transition:filter .5s ease, transform .6s ease;
+  }
+  .card:hover .thumb img{filter:grayscale(0); transform:scale(1.07);}
+  .tag{
+    position:absolute; top:6px; left:6px; z-index:2;
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:4px 8px;
+    background:var(--paper);
+  }
+  .tag.eng{color:var(--accent-eng);}
+  .tag.craft{color:var(--accent-craft);}
+
+  /* text overlay on top of the image, revealed on hover */
+  .overlay-meta{
+    position:absolute; inset:0; z-index:1;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:22px 22px 24px;
+    background:linear-gradient(180deg, rgba(20,19,16,0) 38%, rgba(17,16,14,0.88) 100%);
+    opacity:0;
+    transform:translateY(10px);
+    transition:opacity .35s ease, transform .35s ease;
+  }
+  .card:hover .overlay-meta{opacity:1; transform:translateY(0);}
+  .overlay-meta .index{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; color:rgba(237,234,227,0.72);
+    display:block; margin-bottom:8px;
+  }
+  .overlay-meta h3{
+    font-family:'Inter', sans-serif; font-weight:500; font-size:22px; color:var(--paper);
+    margin:0 0 8px; line-height:1.25;
+  }
+  .overlay-meta h3 .year{
+    font-family:'Inter', sans-serif; font-weight:600; font-size:15px;
+    color:rgba(237,234,227,0.65); margin-left:10px; vertical-align:middle;
+  }
+  .overlay-meta p{
+    font-size:13.5px; color:rgba(237,234,227,0.86); line-height:1.6; margin:0;
+    font-weight:300;
+  }
+  .overlay-meta .open-hint{
+    margin-top:14px; font-family:'IBM Plex Mono', monospace; font-size:11px;
+    letter-spacing:0.05em; color:var(--paper);
+  }
+
+  @media (max-width:600px){ header nav{display:none;} }
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--line-strong);
+    padding:36px 0 48px;
+  }
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+  footer p{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft); margin:0;
+    letter-spacing:0.03em;
+  }
+
+  .fade-up{opacity:0; transform:translateY(18px); animation:fadeUp .8s ease forwards;}
+  @keyframes fadeUp{to{opacity:1; transform:translateY(0);}}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <span class="brand-name">TAKUYA KATO</span>
+      <span class="brand-sub">加藤匠哉 — Robotics & HCI Researcher</span>
+    </div>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="publications.html">Publications</a>
+      <div class="social-row" style="margin-left:14px;">
+        <a href="https://x.com/robokch" target="_blank" rel="noopener" aria-label="X">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.6L4.4 22H1.3l8.1-9.3L1 2h7.1l4.9 6.1L18.9 2Zm-1.2 18h1.9L7.4 4H5.4l12.3 16Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/taku_kato_" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 448 512" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141Zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7Zm146.4-194.3a26.8 26.8 0 1 1-53.6 0 26.8 26.8 0 0 1 53.6 0Zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1S3.3 128.5 1.5 164.4c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8ZM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1Z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/takuya-kato/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3 9.5h4V21H3V9.5Zm7 0h3.8v1.6h.05c.53-.95 1.82-1.95 3.75-1.95 4 0 4.75 2.5 4.75 5.75V21h-4v-5.6c0-1.35-.03-3.1-1.9-3.1-1.9 0-2.2 1.45-2.2 3v5.7h-4V9.5Z"/></svg>
+        </a>
+        <a href="https://github.com/taku-kato" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.15-1.11-1.46-1.11-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.9-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.83-2.35 4.68-4.58 4.92.36.31.68.92.68 1.85v2.75c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="works" id="works">
+  <div class="wrap">
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Takuya Kato, All rights reserved.</p>
+    <p>Tokyo, Japan</p>
+  </div>
+</footer>
+
+<script>
+const works = [
+  {
+    title:"Pottery",
+    typeLabel:"personal",
+    year:"— 2025",
+    img:"fig/title/pottery_title.jpg",
+    desc:"A traditional craft from my hometown. I'm practicing to master its techniques.",
+    link:"pottery.html"
+  },
+  {
+    title:"Climbing Robot",
+    typeLabel:"research",
+    year:"— 2023",
+    img:"fig/title/climbing_robot_title.jpg",
+    desc:"A climbing robot composed of gripping modules with a pin-array structure.",
+    link:"climbing_robot.html"
+  },  
+  {
+    title:"Pin-Array Gripper",
+    typeLabel:"research",
+    year:"— 2022",
+    img:"fig/title/pin_array_gripper_title.jpg",
+    desc:"A pin-array Structure for gripping and shape recognition of convex and concave terrain profiles.",
+    link:"pin_array_gripper.html"
+  },
+  {
+    title:"Parallel Link Robot",
+    typeLabel:"personal",
+    year:"— 2021",
+    img:"fig/title/saize_title.jpg",
+    desc:"A self-made parallel-link robot. It can solve spot-the-difference puzzles.",
+    link:"parallel_link_robot.html"
+  },
+  {
+    title:"Robot Contest",
+    typeLabel:"club activity",
+    year:"— 2019",
+    img:"fig/title/robocon_title.jpg",
+    desc:"A club activity I participated in during my undergraduate years with the goal of competing in the NHK Robocon.",
+    link:"robot_contest.html"
+  },
+  {
+    title:"Plant Physiology",
+    typeLabel:"club activity",
+    year:"— 2015",
+    img:"fig/title/plant_physiology_title.jpg",
+    desc:"A research topic I worked on in the science club during high school.",
+    link:"mimosa.html"
+  }
+];
+
+const grid = document.getElementById('grid');
+let allCards = [];
+
+function buildCards(){
+  works.forEach((w) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.dataset.type = w.typeLabel;
+    card.innerHTML = `
+      <div class="thumb">
+        <img src="${w.img}" alt="${w.title}" loading="lazy">
+        <span class="tag ${w.category}">${w.typeLabel}</span>
+        <div class="overlay-meta">
+          <h3>${w.title}<span class="year">${w.year}</span></h3>
+          <p>${w.desc}</p>
+          <span class="open-hint">詳細を見る →</span>
+        </div>
+      </div>
+    `;
+    card.addEventListener('click', () => { window.location.href = w.link; });
+    grid.appendChild(card);
+    allCards.push(card);
+  });
+}
+
+function getColumns(){
+  const width = window.innerWidth;
+  if (width <= 600) return 1;
+  if (width <= 920) return 2;
+  return 3;
+}
+
+function layout(){
+  const gap = 4;
+  const columns = getColumns();
+  const containerWidth = grid.clientWidth;
+  const colWidth = (containerWidth - gap * (columns - 1)) / columns;
+
+  const visible = allCards.filter(c => !c.classList.contains('is-hidden'));
+  visible.forEach((card, i) => {
+    const col = i % columns;
+    const row = Math.floor(i / columns);
+    const x = col * (colWidth + gap);
+    const y = row * (colWidth + gap);
+    card.style.width = colWidth + 'px';
+    card.style.height = colWidth + 'px';
+    card.style.transform = `translate(${x}px, ${y}px)`;
+  });
+
+  const rows = Math.ceil(visible.length / columns) || 1;
+  grid.style.height = (rows * colWidth + (rows - 1) * gap) + 'px';
+}
+
+let currentFilter = 'all';
+
+function applyFilter(label){
+  const directSwitch = currentFilter !== 'all' && label !== 'all' && currentFilter !== label;
+
+  if (directSwitch) grid.classList.add('instant');
+
+  allCards.forEach(card => {
+    const match = label === 'all' || card.dataset.type === label;
+    card.classList.toggle('is-hidden', !match);
+  });
+  layout();
+
+  if (directSwitch){
+    void grid.offsetHeight; // force reflow so the instant positioning applies immediately
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => grid.classList.remove('instant'));
+    });
+  }
+
+  currentFilter = label;
+}
+
+buildCards();
+grid.classList.add('instant');
+layout();
+void grid.offsetHeight;
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => grid.classList.remove('instant'));
+});
+
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    grid.classList.add('instant');
+    layout();
+    void grid.offsetHeight;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => grid.classList.remove('instant'));
+    });
+  }, 120);
+});
+
+const filterLabels = ['all', ...new Set(works.map(w => w.typeLabel))];
+const filtersEl = document.getElementById('filters');
+filterLabels.forEach(label => {
+  const btn = document.createElement('button');
+  btn.className = 'filter-btn' + (label === 'all' ? ' active' : '');
+  btn.textContent = label === 'all' ? 'All' : label;
+  btn.dataset.filter = label;
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilter(label);
+  });
+  filtersEl.appendChild(btn);
+});
+
+</script>
+
+</body>
+</html>
