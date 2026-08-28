@@ -37,7 +37,14 @@
   .social-row a{width:26px; height:26px; display:flex; align-items:center; justify-content:center; border:1px solid var(--line-strong); border-radius:50%; color:var(--ink); transition:background .2s ease, color .2s ease, transform .2s ease;}
   .social-row a:hover{background:var(--ink); color:var(--paper); transform:translateY(-1px);}
   .social-row svg{width:13px; height:13px;}
-  @media (max-width:600px){ header nav{display:none;} }
+  @media (max-width:600px){
+    header nav{display:flex;}
+    header .wrap{flex-direction:column; align-items:flex-start; gap:12px;}
+    nav{flex-wrap:wrap; gap:14px;}
+    nav a{order:2;}
+    .social-row{flex-basis:100%; margin-left:0 !important; order:1;}
+    .brand-name{font-size:19px;}
+  }
 
   .work-hero{padding:70px 0 40px;}
   .work-hero .back-link{
