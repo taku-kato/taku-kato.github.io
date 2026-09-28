@@ -9,15 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#EDEAE3;
-    --paper-2:#E4E0D6;
-    --ink:#1D1C19;
-    --ink-soft:#4A473F;
-    --line: rgba(29,28,25,0.16);
-    --line-strong: rgba(29,28,25,0.34);
+    --paper:#EDEFF1;
+    --paper-2:#E1E4E8;
+    --ink:#1C1F23;
+    --ink-soft:#5A6068;
+    --line: rgba(28,31,35,0.12);
+    --line-strong: rgba(28,31,35,0.28);
     --accent-eng:#33465A;
     --accent-craft:#5C6B44;
-    --paper-rgb: 237,234,227;
+    --paper-rgb: 237,239,241;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -27,17 +27,6 @@
     color:var(--ink);
     font-family:'IBM Plex Sans JP','IBM Plex Mono',sans-serif;
     -webkit-font-smoothing:antialiased;
-  }
-  body::before{
-    content:"";
-    position:fixed; inset:0;
-    background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size: 64px 64px;
-    opacity:0.35;
-    pointer-events:none;
-    z-index:0;
   }
   .wrap{position:relative; z-index:1; max-width:1000px; margin:0 auto; padding:0 32px;}
 
@@ -86,7 +75,7 @@
   }
   .nav-overlay{
     position:fixed; inset:0; z-index:200;
-    background:rgba(237,234,227,0.6);
+    background:rgba(var(--paper-rgb),0.6);
     backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
     display:flex; align-items:center; justify-content:center;
     opacity:0; pointer-events:none;
